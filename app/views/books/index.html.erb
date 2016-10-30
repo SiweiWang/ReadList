@@ -29,8 +29,16 @@
       <ul class="list-unstyled book-list">
 
         <%= render @books %>
-
       </ul>
     </div>
+    <div class="col-sm-4">
+      <h2>Genres</h2>
+      <ul class="list-unstyled">
+        <% @genres.each do |genre| %>
+          <li>
+            <a href="#" class='label label-primary'><%= genre.name %></a>
+          </li>
+        <% end %>
+      </ul>
   </div>
 </div>

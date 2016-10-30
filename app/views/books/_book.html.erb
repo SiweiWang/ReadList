@@ -15,5 +15,10 @@
         <%= book.description %>
       </p>
     </div>
+    <span>
+      <% book.genres.each do |genre| %>
+        <%= link_to genre.name, "#", class: 'label label-primary' %>
+      <% end %>
+    </span>
   </div>
 </li>
