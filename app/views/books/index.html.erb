@@ -18,9 +18,53 @@
           </div>
         </form>
       </p>
+      <p class='pull-right'>
+        <a href='#' id='show-form' class='btn btn-primary'>New Book Form</a>
+      </p>
     </div>
   </div>
+  
+  <div class='col-sm-12 book-form'>
+    <p>
+      <%= form_for(Book.new, renmote: true, html: { class: 'horizonta-form' }) do |f| %>
+      <legend>New Book</legend>
 
+      <div class='col-s-5'>
+        <div class='form-group'>
+          <label calss='col-sm-2 control-label'>Genre</label>
+          <div class='col-sm-10'>
+            <%= f.select :genres, @genres.map { |g| [g.name, g.id] }, {}, { multiple: true } %>
+          </div>
+        </div>
+
+        <br>
+        <div class='form-group'>
+          <%= f.text_field :title, class: 'form-control', placeholder: 'Title' %>
+        </div>
+
+        <div class='form-group'>
+          <%= f.text_field :author, class: 'form-control', placeholder: 'Author' %>
+        </div>
+
+        <div class='form-group'>
+          <%= f.text_field :description, class: 'form-control', placeholder: 'Description'%>
+        </div>
+
+        <div class='form-group'>
+          <legend>Rating</legend>
+          <% (1..5).each do |rating| %>
+            <label class='radio-inline'>
+              <%= rating %><%= f.radio_button :rating, rating %>
+            </label>
+          <% end %>
+        </div>
+
+        <div class='form-group'>
+          <%= f.submit class: 'btn btn-primary' %>
+        </div>
+      </div>
+    <% end %>
+    </div>
   <hr>
 
 
@@ -35,13 +79,12 @@
     <div class="col-sm-4">
       <h2>Genres</h2>
       <ul class="list-unstyled">
-
         <% @genres.each do |genre| %>
           <li>
-            <%= link_to genre.name, books_path(filter: genre.name), class: 'label label-primary' %>
+            <%= link_to genre.name, books_path(filter: genre.id), class: 'label label-primarys' %>
           </li>
         <% end %>
-  
+
       </ul>
   </div>
 </div>
