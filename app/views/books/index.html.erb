@@ -24,9 +24,9 @@
     </div>
   </div>
   
-  <div class='col-sm-12 book-form'>
+  <div data-turbolinks='false' class='col-sm-12 book-form'>
     <p>
-      <%= form_for(Book.new, renmote: true, html: { class: 'horizonta-form' }) do |f| %>
+      <%= form_for(Book.new, remote: true, html: { class: 'horizonta-form' }) do |f| %>
       <legend>New Book</legend>
 
       <div class='col-s-5'>
@@ -38,7 +38,8 @@
           </div>
         </div>
 
-        <br>
+        <br/>
+
         <div class='form-group'>
           <%= f.text_field :title, class: 'form-control', placeholder: 'Title' %>
         </div>
@@ -64,7 +65,7 @@
           <% end %>
         </div>
 
-        <div class='form-group'>
+        <div data-turbolinks='false' class='form-group'>
           <%= f.submit class: 'btn btn-primary' %>
         </div>
       </div>
