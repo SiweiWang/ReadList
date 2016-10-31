@@ -24,7 +24,7 @@
     </div>
   </div>
   
-  <div data-turbolinks='false' class='col-sm-12 book-form'>
+  <div class='col-sm-12 book-form'>
     <p>
       <%= form_for(Book.new, remote: true, html: { class: 'horizonta-form' }) do |f| %>
       <legend>New Book</legend>
@@ -65,7 +65,7 @@
           <% end %>
         </div>
 
-        <div data-turbolinks='false' class='form-group'>
+        <div class='form-group'>
           <%= f.submit class: 'btn btn-primary' %>
         </div>
       </div>
